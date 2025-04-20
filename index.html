@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RunWithPower download</title>
+  <link rel="icon" href="rwpicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Rubik', sans-serif;
+    }
+
+    body {
+      background-color: #00a8c9;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+
+    h1 {
+      font-size: 3rem;
+      color: #ffffff;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 1rem 0 2rem;
+      color: #ffffff;
+    }
+
+    .download-btn {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      background-color: #055c6e;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .download-btn:hover {
+      background-color: #447882;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <img src="rwpicon.png" alt="RWP Logo" class="logo">
+  <h1>RunWithPower</h1>
+  <p>The most PowerFULL application runner.</p>
+  <button class="download-btn" onclick="downloadInstaller()">Download zip</button>
+
+  <footer>
+    &copy; 2025 RunWithPower.
+  </footer>
+
+  <script>
+    function downloadInstaller() {
+      const link = document.createElement('a');
+      link.href = 'https://github.com/prankapple/RunWithPower/releases/download/RWP/RunWithPower2.0.zip'; // Make sure this file is in the same folder or hosted
+      link.download = 'RunWithPower2.0.zip';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
