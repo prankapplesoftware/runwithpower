@@ -71,17 +71,19 @@
   <img src="rwpicon.png" alt="RWP Logo" class="logo">
   <h1>RunWithPower</h1>
   <p>The most PowerFULL application runner.</p>
+  <h2>To install run :</h2>
+  <code>powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest 'https://github.com/prankapple/RunWithPower3.0/releases/download/RunWithPower3.0/RunWithPower3.0-Installer.ps1' -OutFile install.ps1; .\install.ps1"</code>
+  <h2>Or :</h2>
   <button class="download-btn" onclick="downloadInstaller()">Download zip</button>
-
   <footer>
-    &copy; 2025 RunWithPower.
+    &copy; 2026 RunWithPower.
   </footer>
 
   <script>
     function downloadInstaller() {
       const link = document.createElement('a');
-      link.href = 'RunWithPower2.0.zip'; // Make sure this file is in the same folder or hosted
-      link.download = 'RunWithPower2.0.zip';
+      link.href = 'https://github.com/prankapple/RunWithPower3.0/releases/download/RunWithPower3.0/RunWithPower.zip'; // Make sure this file is in the same folder or hosted
+      link.download = 'RunWithPower3.0.zip';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -89,3 +91,4 @@
   </script>
 </body>
 </html>
+
