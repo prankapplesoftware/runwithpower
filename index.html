@@ -24,32 +24,68 @@
       min-height: 100vh;
       text-align: center;
       padding: 20px;
+      position: relative;
     }
 
     code {
-      font-family: Consolas,"courier new";
-      color: white;
-      background-color: black;
-      padding: 2px;
-      font-size: 105%;
-      border-radius: 20px;
+      font-family: Consolas,"Courier New",monospace;
+      color: #ffffff;
+      background-color: #000000cc;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
+      display: block;
+      text-align: left;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      max-width: 800px;
+      margin: 0 auto;
     }
+
+    .code-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 5px 10px;
+      font-size: 0.9rem;
+      background-color: #055c6e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .copy-btn:hover {
+      background-color: #447882;
+    }
+
     .logo {
       width: 100px;
       height: auto;
       margin-bottom: 20px;
     }
 
-
     h1 {
       font-size: 3rem;
       color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      margin: 1.5rem 0 0.5rem;
+      font-size: 1.5rem;
     }
 
     p {
       font-size: 1.2rem;
       margin: 1rem 0 2rem;
-      color: #ffffff;
     }
 
     .download-btn {
@@ -61,6 +97,7 @@
       color: white;
       cursor: pointer;
       transition: background-color 0.3s;
+      margin-bottom: 3rem;
     }
 
     .download-btn:hover {
@@ -79,16 +116,20 @@
   <img src="rwpicon.png" alt="RWP Logo" class="logo">
   <h1>RunWithPower</h1>
   <p>The most PowerFULL application runner.</p>
-  <h2>To install run :</h2>
-  <br>
-  <pre><code>
-  powershell -NoProfile -ExecutionPolicy Bypass 
-  -Command "Invoke-WebRequest 'https://github.com/prankapple/RunWithPower3.0/releases/download/RunWithPower3.0/RunWithPower3.0-Installer.ps1' -OutFile install.ps1; .\install.ps1"
-  </code></pre>
-  <br>
-  <h2>Or :</h2>
-  <br>
-  <button class="download-btn" onclick="downloadInstaller()">Download zip</button>
+
+  <h2>To install, run:</h2>
+  <div class="code-container">
+    <button class="copy-btn" onclick="copyCommand()">Copy</button>
+    <code id="install-command">
+powershell -NoProfile -ExecutionPolicy Bypass `
+-Command "Invoke-WebRequest 'https://github.com/prankapple/RunWithPower3.0/releases/download/RunWithPower3.0/RunWithPower3.0-Installer.ps1' `
+-OutFile install.ps1; .\install.ps1"
+    </code>
+  </div>
+
+  <h2>Or download the ZIP:</h2>
+  <button class="download-btn" onclick="downloadInstaller()">Download source</button>
+
   <footer>
     &copy; 2026 RunWithPower.
   </footer>
@@ -96,15 +137,21 @@
   <script>
     function downloadInstaller() {
       const link = document.createElement('a');
-      link.href = 'https://github.com/prankapple/RunWithPower3.0/releases/download/RunWithPower3.0/RunWithPower.zip'; // Make sure this file is in the same folder or hosted
+      link.href = 'https://github.com/prankapple/RunWithPower3.0/releases/download/RunWithPower3.0/RunWithPower.zip';
       link.download = 'RunWithPower3.0.zip';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     }
+
+    function copyCommand() {
+      const command = document.getElementById('install-command').innerText.trim();
+      navigator.clipboard.writeText(command).then(() => {
+        alert('Command copied to clipboard!');
+      }).catch(err => {
+        alert('Failed to copy: ' + err);
+      });
+    }
   </script>
 </body>
 </html>
-
-
-
