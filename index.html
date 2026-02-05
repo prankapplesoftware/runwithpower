@@ -121,9 +121,7 @@
   <div class="code-container">
     <button class="copy-btn" onclick="copyCommand()">Copy</button>
     <code id="install-command">
-powershell -NoProfile -ExecutionPolicy Bypass `
--Command "Invoke-WebRequest 'https://github.com/prankapple/RunWithPower3.0/releases/download/RunWithPower3.0/RunWithPower3.0-Installer.ps1' `
--OutFile install.ps1; .\install.ps1"
+      powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest 'https://github.com/prankapple/RunWithPower3.0/releases/download/RunWithPower3.0/RunWithPower3.0-Installer.ps1' -OutFile install.ps1; .\install.ps1"
     </code>
   </div>
 
@@ -155,3 +153,4 @@ powershell -NoProfile -ExecutionPolicy Bypass `
   </script>
 </body>
 </html>
+
